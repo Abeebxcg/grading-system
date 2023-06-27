@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Grading sytem</title>
+
+    <style>
+      .global-container {
+        background-image: url(../Images/desktop-wallpaper-school-completion-background-for-powerpoint-education-ppt-blue-school.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* z-index: -2; */
+      }
+
+      .anim {
+        animation: animat 15s infinite;
+        position: absolute;
+      }
+      @keyframes animat {
+        0% {
+          bottom: 0;
+          left: 0;
+          rotate: 360deg;
+        }
+        100% {
+          bottom: 1000px;
+        }
+      }
+
+      body {
+        margin: 0px;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- global-container -->
+    <div class="global-container relative bg-green-600 min-h-screen">
+      <!-- main container -->
+      <div
+        class="container flex flex-col justify-center min-h-screen items-center"
+      >
+        <!-- content -->
+        <div class="bg-white rounded-xl px-3 shadow-2xl py-8">
+          <!-- form -->
+          <div class="grid space-y-8 py-4 px-20 my-12 mx-auto gap-3">
+            <!-- label -->
+            <label
+              for="text"
+              class="text-2xl md:text-3xl border-b hover:bg-blue-900 hover:text-white py-2 duration-150 rounded-lg border-blue-900 text-center text-blue-900 shadow-2xl duration-200"
+              >Result Checker</label
+            >
+            <!-- input -->
+            <input
+              type="number"
+              class="rounded-xl shadow-xl border-2 text-blue-900 font-sans placeholder-blue-900 border-blue-900 text-lg text-center py-3 px-2 focus:outline-none font-bold"
+              placeholder="Input Your Score"
+              id="myscore"
+            />
+            <!-- button group -->
+            <div class="group mx-auto">
+              <!-- button -->
+              <button
+                class="py-4 flex text-lg items-center justify-center gap-3 text-white active:bg-white active:border-2 active:border-blue-900 active:text-blue-700 uppercase group-hover:-translate-y-0.5 duration-200 shadow-xl duration-150 rounded-xl bg-blue-900 px-14"
+                onclick="submit()"
+              >
+                Check-Result
+              </button>
+            </div>
+
+            <!-- display -->
+            <p
+              class="bg-blue-900 group text-white max-w-sm shadow-xl flex py-3 text-lg px-3 gap-3 justify-center text-center rounded-lg py-2"
+              id="dis"
+            >
+              Checking<svg
+                class="animate-spin w-6 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  class="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  stroke-width="4"
+                ></circle>
+                <path
+                  class="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                ></path>
+              </svg>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="anim h-[3px] w-full opacity-5 mb-10 bg-white"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-5 bg-white"></div>
+      <div class="anim h-[3px] w-full bg-white mb-5 opacity-5"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-5 bg-white"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-5 bg-white"></div>
+      <div class="anim h-[3px] w-full bg-white opacity-5"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-10 bg-white"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-5 bg-white"></div>
+      <div class="anim h-[3px] w-full bg-white mb-5 opacity-5"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-5 bg-white"></div>
+      <div class="anim h-[3px] w-full opacity-5 mb-5 bg-white"></div>
+      <div class="anim h-[3px] w-full bg-white opacity-5"></div>
+    </div>
+
+    <script>
+      var audio = new Audio("../../music/Adult-Laugh.mp3");
+      var audio1 = new Audio("../music/Adult-Laugh.mp3");
+      var audio2 = new Audio("../music/Continue.mp3");
+      var audio3 = new Audio("../music/E-shock-you-broda-shaggi.mp3");
+      var audio4 = new Audio("../music/Ehnnn-Ehnnnn-sound-effect.mp3");
+      var audio5 = new Audio("../music/ahhn.mp3");
+
+      function submit() {
+        if (myscore.value == "") {
+          dis.innerHTML = `Welcome!! please enter a score`;
+          audio.play();
+        } else if (myscore.value >= 0 && myscore.value <= 39) {
+          dis.innerHTML = `Welcome!! You have failed your exam👱‍♀️. your score is ${myscore.value}`;
+          audio.play();
+        } else if (myscore.value >= 40 && myscore.value <= 49) {
+          dis.innerHTML = `Welcome!! You have passed your exam👱‍♀️. your score is ${myscore.value}`;
+          audio1.play();
+        } else if (myscore.value >= 50 && myscore.value <= 69) {
+          dis.innerHTML = `Welcome!! You have passed your exam with a credit grade👱‍♀️. your score is ${myscore.value}`;
+          audio2.play();
+        } else if (myscore.value >= 69 && myscore.value <= 70) {
+          dis.innerHTML = `Welcome!! You have passed your exam with a good grade👱‍♀️. your score is ${myscore.value}`;
+          audio3.play();
+        } else if (myscore.value >= 79 && myscore.value <= 100) {
+          dis.innerHTML = `Welcome!! You have passed your exam with an Excellent grade👱‍♀️. your score is ${myscore.value}`;
+          audio4.play();
+        } else {
+          dis.innerHTML = `welcome, This is an invalid score.`;
+          audio5.play();
+        }
+      }
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            keyframes: {
+              wiggle: {
+                "0%, 100%": { transform: "rotate(-12deg)" },
+                "50%": { transform: "rotate(12deg)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </body>
+</html>
